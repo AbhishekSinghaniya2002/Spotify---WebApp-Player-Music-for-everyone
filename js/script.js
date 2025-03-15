@@ -19,8 +19,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getsongs(folder) {
     currFolder = folder;
-    //let a = await fetch(`http://127.0.0.1:3000/${folder}/`) //Kyunki jab ham ye host karenge to domain 127 accept nahi karega
-    
+    // let a = await fetch(`http://127.0.0.1:3000/${folder}/`)Kyunki jab ham ye host karenge to domain 127 accept nahi karega
     let a = await fetch(`/${folder}/`)
     let response = await a.text();
     let div = document.createElement("div")
@@ -31,7 +30,7 @@ async function getsongs(folder) {
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(/${folder}/`)[1])
+            songs.push(element.href.split(`/${folder}/`)[1])
         }
 
     }
